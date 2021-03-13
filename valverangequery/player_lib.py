@@ -1,5 +1,4 @@
 import socket, struct, sys, time
-import StringIO
 import logging
 
 from source_packet import *
