@@ -52,7 +52,7 @@ class SourceQueryPacket(BytesIO):
 	def getString(self):
 		val = self.getvalue()
 		start = self.tell()
-		end = val.index('\0', start)
+		end = val.index(b'\0', start)
 		val = val[start:end]
 		self.seek(end+1)
 		return val
