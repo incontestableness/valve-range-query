@@ -59,11 +59,11 @@ class receiverThread (threading.Thread):
 			try:
 				packet, addr = self.receive()
 			except (socket.error, socket.timeout) as msg:
-				if msg[0] == 111:					 #Error Connection Refused
-					logging.exception("Receiver Error " + str(msg))
-				elif str(msg[0]) == "timed out":
+				if type(msg) == socket.timeout:
 					logging.info("Receiver timed out")
-					break;
+					break
+				elif msg[0] == 111:					 #Error Connection Refused
+					logging.exception("Receiver Error " + str(msg))
 				else:
 					logging.exception("Receiver Error " + str(msg))
 					continue
