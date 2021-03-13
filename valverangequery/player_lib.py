@@ -1,7 +1,7 @@
 import socket, struct, sys, time
 import logging
 
-from source_packet import *
+from .source_packet import *
 
 PACKETSIZE=1400
 

@@ -3,7 +3,7 @@ import threading
 import time
 import logging
 
-from source_packet import *
+from .source_packet import *
 
 PACKETSIZE=1400
 WHOLE=-1
