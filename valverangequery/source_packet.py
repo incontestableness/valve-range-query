@@ -1,4 +1,4 @@
-from io import StringIO
+from io import BytesIO
 import struct
 import logging 
 
@@ -17,7 +17,7 @@ class SourceQueryError(Exception):
 	def __str__(self):
 		return repr(self.value)
 
-class SourceQueryPacket(StringIO):
+class SourceQueryPacket(BytesIO):
 	# putting and getting values
 	def putByte(self, val):
 		self.write(struct.pack('<B', val))
