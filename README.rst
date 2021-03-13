@@ -5,7 +5,7 @@ To install the library run
 
 ::
 
-	pip install valve-range-query
+	pip3 install valve-range-query-3
 
 
 To scan servers in range " <base_ipaddr> . <axlimits> . <aylimits> "

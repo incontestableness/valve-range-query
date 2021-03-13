@@ -1,10 +1,10 @@
 Metadata-Version: 1.1
-Name: valve-range-query
-Version: 1.0.4
+Name: valve-range-query-3
+Version: 2.0.0
 Summary: Python library for Query of Valve Servers over a range of IPs
-Home-page: https://github.com/anshulshah96/valve-range-query
-Author: Anshul Shah
-Author-email: anshulshah96@gmail.com
+Home-page: https://github.com/incontestableness/valve-range-query-3
+Author: incontestableness
+Author-email: whyistherumg0ne@protonmail.com
 License: MIT
 Description: Python library for Query of Valve Servers over a range of IPs
         =============================================================
@@ -13,7 +13,7 @@ Description: Python library for Query of Valve Servers over a range of IPs
         
         ::
         
-        	pip install valve-range-query
+        	pip3 install valve-range-query-3
         
         
         To scan servers in range " <base_ipaddr> . <axlimits> . <aylimits> "
@@ -71,10 +71,11 @@ Description: Python library for Query of Valve Servers over a range of IPs
         				'score' : player_obj['score'], 'duration' : int(player_obj['duration'])	, 
         				'name'	: player_obj['name']
         		}
-Keywords: valve query servers counter strike
+        
+Keywords: valve query servers counter strike csgo team fortress tf2 left for dead l4d2
 Platform: UNKNOWN
 Classifier: Development Status :: 4 - Beta
 Classifier: Intended Audience :: Developers
 Classifier: Topic :: Software Development :: Build Tools
 Classifier: License :: OSI Approved :: MIT License
-Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.7
