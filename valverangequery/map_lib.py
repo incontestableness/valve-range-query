@@ -32,7 +32,7 @@ class sendThread (threading.Thread):
 
 		for i in list(range(self.axlimits[0], self.axlimits[1] + 1)):
 			base_ip = self.base_ipaddr+"."+str(i)+"."
-			for j in range (self.aylimits[0],self.aylimits[1]):
+			for j in list(range(self.aylimits[0], self.aylimits[1] + 1)):
 				current_ip = base_ip + str(j)
 				# logging.debug("Scanning "+ current_ip)
 				try:
