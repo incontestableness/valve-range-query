@@ -30,7 +30,7 @@ class sendThread (threading.Thread):
 		spacket.putByte(A2S_INFO)
 		spacket.putString(A2S_INFO_STRING)
 
-		for i in range (self.axlimits[0],self.axlimits[1]):
+		for i in list(range(self.axlimits[0], self.axlimits[1] + 1)):
 			base_ip = self.base_ipaddr+"."+str(i)+"."
 			for j in range (self.aylimits[0],self.aylimits[1]):
 				current_ip = base_ip + str(j)
