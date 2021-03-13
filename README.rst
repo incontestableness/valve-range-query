@@ -14,22 +14,22 @@ For example scan '172'.'25'.'0-34'.'0.254'
 
 ::
 	
-    from valverangequery import *
-    axlimits = [0,35]
-    aylimits = [0,255]
-    base_ipaddr = "172.25"
-    scanner = SourceScanner(timeout = 20.0, axlimits = axlimits, aylimits = aylimits, base_ipaddr="172.25")
-    server_list = scanner.scan_servers()
+	from valverangequery import *
+	axlimits = [0,35]
+	aylimits = [0,255]
+	base_ipaddr = "172.25"
+	scanner = SourceScanner(timeout = 20.0, axlimits = axlimits, aylimits = aylimits, base_ipaddr="172.25")
+	server_list = scanner.scan_servers()
 
 
 To obtain player info from server having IP <ip>
 
 ::
 	
-    from valverangequery import *
-    ip = "172.25.12.121"
-    player_query = PlayerQuery(ip)
-    player_list  = player_query.player()
+	from valverangequery import *
+	ip = "172.25.12.121"
+	player_query = PlayerQuery(ip)
+	player_list  = player_query.player()
 
 
 ----

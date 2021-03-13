@@ -12,10 +12,10 @@ CHALLENGE = -1
 S2C_CHALLENGE = ord('A')
 
 class SourceQueryError(Exception):
-    def __init__(self, value):
-        self.value = value
-    def __str__(self):
-        return repr(self.value)
+	def __init__(self, value):
+		self.value = value
+	def __str__(self):
+		return repr(self.value)
 
 class SourceQueryPacket(StringIO.StringIO):
 	# putting and getting values
@@ -79,13 +79,13 @@ class SourceQueryPacket(StringIO.StringIO):
 
 			### Too verbose results ###
 			if int(result['mod']) == 1:
-			    result['link'] = self.getString()
-			    result['download_link'] = self.getString()
-			    self.getByte()
-			    result['version'] = self.getLong()
-			    result['size'] = self.getLong()
-			    result['type'] = self.getByte()
-			    result['dll'] = self.getByte()
+				result['link'] = self.getString()
+				result['download_link'] = self.getString()
+				self.getByte()
+				result['version'] = self.getLong()
+				result['size'] = self.getLong()
+				result['type'] = self.getByte()
+				result['dll'] = self.getByte()
 			result['vac'] = self.getByte()
 			result['bots'] = self.getByte()
 			return result
@@ -122,15 +122,15 @@ class SourceQueryPacket(StringIO.StringIO):
 			# TF2 32player servers may send an incomplete reply
 			try:
 				for x in xrange(numplayers):
-				    player = {}
-				    player['ip'] = self.host
-				    player['index'] = self.getByte()
-				    player['name'] = self.getString()
-				    player['score'] = self.getLong()
-				    player['duration'] = self.getFloat()
-				    if player['duration'] < 0:		#For handling some exceptional responses
-				    	player['duration'] = 0
-				    player_list.append(player)
+					player = {}
+					player['ip'] = self.host
+					player['index'] = self.getByte()
+					player['name'] = self.getString()
+					player['score'] = self.getLong()
+					player['duration'] = self.getFloat()
+					if player['duration'] < 0:		#For handling some exceptional responses
+						player['duration'] = 0
+					player_list.append(player)
 	  		except Exception, msg:
 				logging.error(str(msg))
 				return None

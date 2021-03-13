@@ -18,8 +18,8 @@ class sendThread (threading.Thread):
 		threading.Thread.__init__(self)
 		self.axlimits 	= axlimits
 		self.aylimits 	= aylimits
-		self.udp        = udp
-		self.port       = port
+		self.udp		= udp
+		self.port	   = port
 		self.wait 		= wait
 		self.base_ipaddr= base_ipaddr
 	def run(self):
@@ -59,7 +59,7 @@ class receiverThread (threading.Thread):
 			try:
 				packet, addr = self.receive()
 			except socket.error, msg:
-				if msg[0] == 111:                       #Error Connection Refused
+				if msg[0] == 111:					   #Error Connection Refused
 					logging.exception("Receiver Error " + str(msg))
 				elif str(msg[0]) == "timed out":
 					logging.info("Receiver timed out")
@@ -90,43 +90,43 @@ class receiverThread (threading.Thread):
 			typ = packet.getLong()
 
 			if typ == WHOLE:
-			    logging.debug("Whole Packet")
-			    packet.host = addr[0]
-			    return packet,addr
+				logging.debug("Whole Packet")
+				packet.host = addr[0]
+				return packet,addr
 
 			elif typ == SPLIT:
-			    # handle split packets
-			    logging.debug("Split Packet")
-			    reqid = packet.getLong()
-			    total = packet.getByte()
-			    num = packet.getByte()
-			    splitsize = packet.getShort()
-			    result = [0 for x in xrange(total)]
+				# handle split packets
+				logging.debug("Split Packet")
+				reqid = packet.getLong()
+				total = packet.getByte()
+				num = packet.getByte()
+				splitsize = packet.getShort()
+				result = [0 for x in xrange(total)]
 
-			    result[num] = packet.read()
+				result[num] = packet.read()
 
-			    # fetch all remaining splits
-			    while 0 in result:
+				# fetch all remaining splits
+				while 0 in result:
 				packet = SourceQueryPacket(self.udp.recv(PACKETSIZE))
 
 				if packet.getLong() == SPLIT and packet.getLong() == reqid:
-				    total = packet.getByte()
-				    num = packet.getByte()
-				    splitsize = packet.getShort()
-				    result[num] = packet.read()
+					total = packet.getByte()
+					num = packet.getByte()
+					splitsize = packet.getShort()
+					result[num] = packet.read()
 
 				else:
-				    raise SourceQueryError('Invalid split packet')
+					raise SourceQueryError('Invalid split packet')
 
-			    packet = SourceQueryPacket("".join(result))
+				packet = SourceQueryPacket("".join(result))
 
-			    if packet.getLong() == WHOLE:
+				if packet.getLong() == WHOLE:
 				packet.host = addr[0]
 				return packet,addr
-			    else:
+				else:
 					raise SourceQueryError('Invalid split packet')
 			else:
-			    raise SourceQueryError("Received invalid packet type %d" % (typ,))
+				raise SourceQueryError("Received invalid packet type %d" % (typ,))
 
 class SourceScanner(object):
 	def __init__(self,port=27015, timeout=2.0, axlimits = [1,255], aylimits = [1,255], wait = 0.2,base_ipaddr = "172.25"):
