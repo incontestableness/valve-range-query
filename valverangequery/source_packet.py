@@ -20,19 +20,19 @@ class SourceQueryError(Exception):
 class SourceQueryPacket(BytesIO):
 	# putting and getting values
 	def putByte(self, val):
-		self.write(struct.pack('<B', val))
+		self.write(struct.pack(b'<B', val))
 
 	def getByte(self):
 		return struct.unpack('<B', self.read(1))[0]
 
 	def putShort(self, val):
-		self.write(struct.pack('<h', val))
+		self.write(struct.pack(b'<h', val))
 
 	def getShort(self):
 		return struct.unpack('<h', self.read(2))[0]
 
 	def putLong(self, val):
-		self.write(struct.pack('<l', val))
+		self.write(struct.pack(b'<l', val))
 
 	def getLong(self):
 		return struct.unpack('<l', self.read(4))[0]
@@ -41,13 +41,13 @@ class SourceQueryPacket(BytesIO):
 		return struct.unpack('<Q', self.read(8))[0]
 
 	def putFloat(self, val):
-		self.write(struct.pack('<f', val))
+		self.write(struct.pack(b'<f', val))
 
 	def getFloat(self):
 		return struct.unpack('<f', self.read(4))[0]
 
 	def putString(self, val):
-		self.write(val + '\x00')
+		self.write(bytes(val + '\x00', encoding="UTF-8"))
 
 	def getString(self):
 		val = self.getvalue()
