@@ -104,7 +104,7 @@ class PlayerQuery(object):
 			packet.putByte(A2S_PLAYER)
 			packet.putLong(challenge)
 		except KeyboardInterrupt:
-			logging.error("KeyboardInterrupt exiting...")   
+			logging.error("KeyboardInterrupt exiting...") 
 			sys.exit(0)
 			return []
 		except Exception, e:

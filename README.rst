@@ -29,7 +29,7 @@ To obtain player info from server having IP <ip>
 	from valverangequery import *
 	ip = "172.25.12.121"
 	player_query = PlayerQuery(ip)
-	player_list  = player_query.player()
+	player_list= player_query.player()
 
 
 ----

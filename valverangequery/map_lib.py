@@ -19,7 +19,7 @@ class sendThread (threading.Thread):
 		self.axlimits 	= axlimits
 		self.aylimits 	= aylimits
 		self.udp		= udp
-		self.port	   = port
+		self.port	 = port
 		self.wait 		= wait
 		self.base_ipaddr= base_ipaddr
 	def run(self):
@@ -59,7 +59,7 @@ class receiverThread (threading.Thread):
 			try:
 				packet, addr = self.receive()
 			except socket.error, msg:
-				if msg[0] == 111:					   #Error Connection Refused
+				if msg[0] == 111:					 #Error Connection Refused
 					logging.exception("Receiver Error " + str(msg))
 				elif str(msg[0]) == "timed out":
 					logging.info("Receiver timed out")
@@ -71,7 +71,7 @@ class receiverThread (threading.Thread):
 				logging.error("KeyboardInterrupt exiting...")	
 				sys.exit(0)
 			else:
-				dat  = packet.parsePacket()
+				dat= packet.parsePacket()
 				logging.debug("Parsed map info from "+addr[0])
 				server_list.append(dat)
 		logging.info("Receiver Thread Ended")
