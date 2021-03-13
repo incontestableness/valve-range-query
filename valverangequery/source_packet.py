@@ -1,4 +1,4 @@
-import StringIO
+from io import StringIO
 import struct
 import logging 
 
@@ -17,7 +17,7 @@ class SourceQueryError(Exception):
 	def __str__(self):
 		return repr(self.value)
 
-class SourceQueryPacket(StringIO.StringIO):
+class SourceQueryPacket(StringIO):
 	# putting and getting values
 	def putByte(self, val):
 		self.write(struct.pack('<B', val))
@@ -131,7 +131,7 @@ class SourceQueryPacket(StringIO.StringIO):
 					if player['duration'] < 0:		#For handling some exceptional responses
 						player['duration'] = 0
 					player_list.append(player)
-			except Exception, msg:
+			except Exception as msg:
 				logging.error(str(msg))
 				return None
 			result['player_list'] = player_list
