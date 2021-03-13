@@ -107,22 +107,22 @@ class receiverThread (threading.Thread):
 
 				# fetch all remaining splits
 				while 0 in result:
-				packet = SourceQueryPacket(self.udp.recv(PACKETSIZE))
+					packet = SourceQueryPacket(self.udp.recv(PACKETSIZE))
 
-				if packet.getLong() == SPLIT and packet.getLong() == reqid:
-					total = packet.getByte()
-					num = packet.getByte()
-					splitsize = packet.getShort()
-					result[num] = packet.read()
+					if packet.getLong() == SPLIT and packet.getLong() == reqid:
+						total = packet.getByte()
+						num = packet.getByte()
+						splitsize = packet.getShort()
+						result[num] = packet.read()
 
-				else:
-					raise SourceQueryError('Invalid split packet')
+					else:
+						raise SourceQueryError('Invalid split packet')
 
 				packet = SourceQueryPacket("".join(result))
 
 				if packet.getLong() == WHOLE:
-				packet.host = addr[0]
-				return packet,addr
+					packet.host = addr[0]
+					return packet,addr
 				else:
 					raise SourceQueryError('Invalid split packet')
 			else:
