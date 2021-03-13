@@ -107,7 +107,7 @@ class PlayerQuery(object):
 			logging.error("KeyboardInterrupt exiting...") 
 			sys.exit(0)
 			return []
-		except Exception, e:
+		except Exception as e:
 			logging.error("Error while player query for " + self.host)
 			logging.error(str(e))
 			return []
@@ -131,6 +131,6 @@ class PlayerQuery(object):
 						player['duration'] = packet.getFloat()
 						result.append(player)
 
-				except Exception, msg:
+				except Exception as msg:
 					logging.exception(str(msg))
 				return result
