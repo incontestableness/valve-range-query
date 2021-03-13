@@ -158,9 +158,3 @@ class SourceScanner(object):
 			rthread.join()
 
 			return server_list
-
-	def scan_players(self,ip_list):
-		pass
-	def get_serverlist(self):
-			global server_list
-			return server_list
