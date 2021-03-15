@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: valve-range-query-3
-Version: 2.0.2
+Version: 2.0.3
 Summary: Python library for Query of Valve Servers over a range of IPs
 Home-page: https://github.com/incontestableness/valve-range-query-3
 Author: incontestableness

@@ -40,7 +40,7 @@ class sendThread (threading.Thread):
 					self.force_list.append(current_ip)
 
 		for current_ip in self.force_list: 
-			# logging.debug("Scanning "+ current_ip)
+			logging.debug("Scanning " + current_ip)
 			try:
 				self.udp.sendto(spacket.getvalue(),(current_ip, self.port))
 			except socket.error as msg:
@@ -50,7 +50,6 @@ class sendThread (threading.Thread):
 					logging.info("Sender Error at ip "+ current_ip + " error: " + str(msg))
 				continue
 			time.sleep(self.wait);
-			logging.debug("Scanned X " + str(i))
 		logging.info("Sender Thread Ended")
 
 class receiverThread (threading.Thread):

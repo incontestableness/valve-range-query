@@ -19,7 +19,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 setup(
 	name='valve-range-query-3',
 
-	version='2.0.2',
+	version='2.0.3',
 
 	description='Python library for Query of Valve Servers over a range of IPs',
 	long_description=long_description,
