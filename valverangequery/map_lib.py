@@ -31,15 +31,15 @@ class sendThread (threading.Thread):
 		spacket.putByte(A2S_INFO)
 		spacket.putString(A2S_INFO_STRING)
 
-		if force_list == []: 
+		if self.force_list == []: 
 			# Create a list of IP addresses to scan from the limits we were given
 			for i in list(range(self.axlimits[0], self.axlimits[1] + 1)):
 				base_ip = self.base_ipaddr + "." + str(i) + "."
 				for j in list(range(self.aylimits[0], self.aylimits[1] + 1)):
 					current_ip = base_ip + str(j)
-					force_list.append(current_ip)
+					self.force_list.append(current_ip)
 
-		for current_ip in force_list: 
+		for current_ip in self.force_list: 
 			# logging.debug("Scanning "+ current_ip)
 			try:
 				self.udp.sendto(spacket.getvalue(),(current_ip, self.port))
