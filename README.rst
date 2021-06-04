@@ -3,7 +3,7 @@ Python library for Query of Valve Servers over a range of IPs
 
 This is a Python 3 port of https://github.com/anshulshah96/valve-range-query. It should support all Valve Source Dedicated Servers (CS:GO, TF2, L4D2).
 
-I don't recommend actually using this due to its inefficiency. I suggest using python-a2s instead. See my project, GLaDOS, for an example implementation of mass scanning with python-a2s.
+I don't recommend actually using this due to its inefficiency. I suggest using python-a2s instead. See my project, GLaDOS, for an example implementation of mass scanning with python-a2s. In particular, you may find ketchupbottle.py in the legacy branch interesting.
 
 To install the library run
 
